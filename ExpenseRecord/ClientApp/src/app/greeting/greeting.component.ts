@@ -59,11 +59,11 @@ export class GreetingComponent implements OnInit {
       }, (error: any) => console.error(error));
   }
 
-  //ShowAll() {
-  //  this.http.get<JSON>(this.baseUrl + 'api/items/all' + name, { responseType: 'text' as 'json' })
-  //    .subscribe((result: JSON) => {
-  //      this.All = result;
-  //    }, (error: any) => console.error(error));
-  //}
+  ShowAll() {
+    this.http.get<JSON>(this.baseUrl + 'api/items/all' + name, { responseType: 'text' as 'json' })
+      .subscribe((result: JSON) => {
+        this.All = result;
+      }, (error: any) => console.error(error));
+  }
 
 }
