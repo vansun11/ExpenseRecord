@@ -9,6 +9,11 @@ import {HttpClient} from "@angular/common/http";
 export class GreetingComponent implements OnInit {
   name!: string;
   greeting!: string;
+  Description!: string;
+  Type!: string;
+  Amount!: string;
+  Date!: string;
+  All!: JSON;
 
   private baseUrl: string;
   private http: HttpClient;
@@ -25,6 +30,11 @@ export class GreetingComponent implements OnInit {
     this.callApi(this.name);
   }
 
+  create() {
+    this.CreateNew();
+    this.ShowAll();
+  }
+
   callApi(name: string) {
     this.http.get<string>(this.baseUrl + 'api/items?name=' + name, {responseType: 'text' as 'json'})
       .subscribe((result: string) => {
@@ -35,4 +45,25 @@ export class GreetingComponent implements OnInit {
     //    this.greeting = result;
     //  }, (error: any) => console.error(error));
   }
+
+  CreateNew() {
+    this.http.post<string>(this.baseUrl + 'api/items', {
+                                                          "Description": this.Description,
+                                                          "Type": this.Type,
+                                                          "Amount": this.Amount,
+                                                          "Date": this.Date
+                                                        },
+      { responseType: 'text' as 'json' })
+      .subscribe((result: string) => {
+        this.greeting = result;
+      }, (error: any) => console.error(error));
+  }
+
+  //ShowAll() {
+  //  this.http.get<JSON>(this.baseUrl + 'api/items/all' + name, { responseType: 'text' as 'json' })
+  //    .subscribe((result: JSON) => {
+  //      this.All = result;
+  //    }, (error: any) => console.error(error));
+  //}
+
 }

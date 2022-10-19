@@ -2,3 +2,13 @@
 <button (click)="greet()">greet</button>
 <br>
 <label> {{greeting}} </label>
+
+<div>
+  <input type="text" id="Description" [(ngModel)]="Description">
+  <input type="text" id="Type" [(ngModel)]="Type">
+  <input type="text" id="Amount" [(ngModel)]="Amount">
+  <input type="text" id="Date" [(ngModel)]="Date">
+  <button (click)="create()">Create Item</button>
+</div>
+
+<label> {{All}} </label>
