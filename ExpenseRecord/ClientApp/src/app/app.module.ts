@@ -12,7 +12,7 @@ import {GreetingComponent} from "./greeting/greeting.component";
     declarations: [
         AppComponent,
         CounterComponent,
-        GreetingComponent
+        GreetingComponent,
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

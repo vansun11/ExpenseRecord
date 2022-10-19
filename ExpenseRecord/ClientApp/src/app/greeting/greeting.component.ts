@@ -26,9 +26,13 @@ export class GreetingComponent implements OnInit {
   }
 
   callApi(name: string) {
-    this.http.get<string>(this.baseUrl + 'greeting?name=' + name, {responseType: 'text' as 'json'})
+    this.http.get<string>(this.baseUrl + 'api/items?name=' + name, {responseType: 'text' as 'json'})
       .subscribe((result: string) => {
         this.greeting = result;
       }, (error: any) => console.error(error));
+    //this.http.get<string>(this.baseUrl + 'greeting?name=' + name, { responseType: 'text' as 'json' })
+    //  .subscribe((result: string) => {
+    //    this.greeting = result;
+    //  }, (error: any) => console.error(error));
   }
 }
