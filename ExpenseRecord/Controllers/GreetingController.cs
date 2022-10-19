@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using ExpenseRecord.DTO;
-using System.Collections.Generic;
-using System.Xml.Linq;
 
 namespace ExpenseRecord.Controllers;
 
@@ -9,12 +7,13 @@ namespace ExpenseRecord.Controllers;
 [Route("api/items")]
 public class GreetingController : ControllerBase
 {
-    public List<Dictionary<string, string>> ItemList;
+    public List<Dictionary<string, string>> ItemList { get; set; }
 
-    public GreetingController(List<Dictionary<string, string>> itemList)
+    public GreetingController()
     {
-        ItemList = itemList;
+        ItemList = new List<Dictionary<string, string>>();
     }
+
 
     [HttpGet]
     public string greet(string name)
@@ -36,6 +35,7 @@ public class GreetingController : ControllerBase
             {"Date", erItemDTO.Date}
         };
         ItemList.Add(erItem);
+        Console.WriteLine(ItemList);
         return "Create";
     }
 

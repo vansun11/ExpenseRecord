@@ -13,7 +13,7 @@ export class GreetingComponent implements OnInit {
   Type!: string;
   Amount!: string;
   Date!: string;
-  All!: JSON;
+  All!: string;
 
   private baseUrl: string;
   private http: HttpClient;
@@ -60,9 +60,9 @@ export class GreetingComponent implements OnInit {
   }
 
   ShowAll() {
-    this.http.get<JSON>(this.baseUrl + 'api/items/all' + name, { responseType: 'text' as 'json' })
-      .subscribe((result: JSON) => {
-        var data = result.stringify("Id", ["Description", "Type", "Amount", "Date"]);
+    this.http.get<string>(this.baseUrl + 'api/items/all', { responseType: 'text' as 'json' })
+      .subscribe((result: string) => {
+        //var data = result.stringify("Id", ["Description", "Type", "Amount", "Date"]);
         this.All = result;
       }, (error: any) => console.error(error));
   }
