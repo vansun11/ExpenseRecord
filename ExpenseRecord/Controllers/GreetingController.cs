@@ -46,18 +46,18 @@ public class GreetingController : ControllerBase
         return ItemList;
     }
 
-    [HttpDelete]
-    [Route("{Id}")]
-    public string DeleteItem([FromRoute] string id)
-    {
-        foreach (Dictionary<string, string> item in ItemList) {
-            if (item["Id"] == id) {
-                ItemList.Remove(item);
-                break;
-            }
-        }
-        return "delete success";
-    }
+    //[HttpDelete]
+    //[Route("{Id}")]
+    //public string DeleteItem([FromRoute] string id)
+    //{
+    //    foreach (Dictionary<string, string> item in ItemList) {
+    //        if (item["Id"] == id) {
+    //            ItemList.Remove(item);
+    //            break;
+    //        }
+    //    }
+    //    return "delete success";
+    //}
 
 
 

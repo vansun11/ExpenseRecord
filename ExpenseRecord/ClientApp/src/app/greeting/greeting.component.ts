@@ -62,6 +62,7 @@ export class GreetingComponent implements OnInit {
   ShowAll() {
     this.http.get<JSON>(this.baseUrl + 'api/items/all' + name, { responseType: 'text' as 'json' })
       .subscribe((result: JSON) => {
+        var data = result.stringify("Id", ["Description", "Type", "Amount", "Date"]);
         this.All = result;
       }, (error: any) => console.error(error));
   }
